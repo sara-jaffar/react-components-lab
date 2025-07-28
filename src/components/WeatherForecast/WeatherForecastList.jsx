@@ -1,26 +1,29 @@
+import './WeatherForecast.css';
+
 const WeatherForecastListItem = (props) => {
     return (
-        <li>
+        <div className="weather">
+            <h2>{props.day}</h2>
             <img src={props.img} alt={props.imgAlt} />
             <p><span>conditions: </span>{props.conditions}</p>
             <p><span>time: </span>{props.time}</p>
-        </li>
+        </div> 
     )
 }
 
 const WeatherForecastsList = (props) => {
     return (
         <>
-        <h2>Day of the Week</h2>
-        {props.weatherForecasts.map(forecast =>
-        <WeatherForecastListItem 
-        img={forecast.img}
-        imgAlt={forecast.imgAlt}
-        conditions={forecast.conditions}
-        time={forecast.time}
-        />
-    )}
-    </>
+            {props.weatherForecasts.map(forecast =>
+            <WeatherForecastListItem 
+            day={forecast.day}
+            img={forecast.img}
+            imgAlt={forecast.imgAlt}
+            conditions={forecast.conditions}
+            time={forecast.time}
+            />
+            )}
+        </>
     )
 }
 
